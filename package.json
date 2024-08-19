@@ -1,0 +1,99 @@
+{
+  "name": "org.i8xnet.watermark",
+  "displayName": "WaterMark",
+  "private": true,
+  "version": "1.0.0",
+  "description": "تطبيق يتيح لك إضافة علامات مائية إلى الصور. يمكن للمستخدمين تحميل الصور، اختيار علامات مائية، وضبط حجم وموقع العلامة المائية.",
+  "main": "index.js",
+  "scripts": {
+    "keytool": "node keytool.js",
+    "start": "cordova serve",
+    "dev": "react-scripts start",
+    "build": "node prebuild.js",
+    "android": "cordova platform add android@latest",
+    "re-android": "cordova platform rm android && cordova platform add android@latest",
+    "build-apk": "npm run build && cordova build android --release -- --packageType=apk",
+    "build-aab": "npm run build && cordova build android --release -- --packageType=bundle",
+    "device": "cordova run android --device",
+    "bu-device": "npm run build && cordova run android --device",
+    "logcat": "adb logcat",
+    "log": "adb logcat | Select-String INFO:CONSOLE",
+    "clean": "cordova clean && npm cache clean --force",
+    "rm": "rmdir /s /q node_modules platforms plugins && del package-lock.json && npm run android",
+    "rm-linux": "rm -rf node_modules platforms plugins && rm package-lock.json && npm run android",
+    "prepare": "cordova prepare",
+    "update-deps": "npm outdated && npm update"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "watermark",
+    "images",
+    "photo"
+  ],
+  "author": {
+    "name": "Ryan Almalki",
+    "email": "rn0x.me@gmail.com",
+    "url": "https://github.com/rn0x/WaterMark"
+  },
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "cordova-android": "^13.0.0",
+    "cordova-plugin-camera": "^7.0.0",
+    "cordova-plugin-device": "^3.0.0",
+    "cordova-plugin-file": "^8.1.0",
+    "cordova-plugin-file-transfer": "^2.0.0",
+    "cordova-plugin-inappbrowser": "^6.0.0",
+    "cordova-plugin-navigationbar-color": "github:accessai/cordova-plugin-navigationbar",
+    "cordova-plugin-statusbar": "^4.0.0",
+    "phonegap-plugin-mobile-accessibility": "github:phonegap/phonegap-mobile-accessibility"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-camera": {
+        "ANDROIDX_CORE_VERSION": "1.6.+"
+      },
+      "cordova-plugin-file": {
+        "ANDROIDX_WEBKIT_VERSION": "1.4.0"
+      },
+      "cordova-plugin-file-transfer": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-device": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "dotenv": "^16.4.5",
+    "fabric": "^6.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
+    "react-icons": "^5.3.0",
+    "react-scripts": "^5.0.1",
+    "react-toastify": "^10.0.5",
+    "web-vitals": "^2.1.4"
+  }
+}

@@ -1,0 +1,11 @@
+node_modules
+package-lock.json
+build
+plugins
+platforms
+release.keystore
+build.json
+.env
+www/*
+!www/index.html
+npm-debug.log
